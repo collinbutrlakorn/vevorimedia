@@ -451,17 +451,17 @@ footer{
     <div class="step">
       <div class="step__n">01</div>
       <h3>Talk it through</h3>
-      <p>Fifteen minutes on what you need, where it's going, and what it costs. You get a written quote and a shoot date the same week.</p>
+      <p>A quick conversation about what you need and where it's going. You get a written quote and we set a shoot date that works for you.</p>
     </div>
     <div class="step">
       <div class="step__n">02</div>
       <h3>Shoot</h3>
-      <p>Usually one day. Gear, crew, and permits handled; we work around your schedule and stay out of the way of whatever you're actually running.</p>
+      <p>We bring professional cameras, lenses, lighting, and microphones, and work around your schedule so we stay out of the way of whatever you're actually running.</p>
     </div>
     <div class="step">
       <div class="step__n">03</div>
       <h3>Deliver</h3>
-      <p>First cut on a timeline we agree up front, two rounds of notes included, and final files sized for every place you'll post them. You own the footage.</p>
+      <p>A first cut on a timeline we agree up front, revisions to get it right, and final files sized for every place you'll post them.</p>
     </div>
   </div>
 </section>
@@ -483,6 +483,14 @@ footer{
       <p>Yes. We're based in Oregon and prefer to work within the state, but we're open to traveling farther depending on the scale of the project.</p>
     </details>
     <details>
+      <summary>Do we get the raw footage?</summary>
+      <p>No. Like most professional production companies, we deliver the finished edit rather than raw footage. Vevori Media retains ownership of all footage and finished work, and clients are licensed to use the finished video for the purpose we agree on in your quote. If you need something different, ask us before we start.</p><!-- [[COPY]] have a lawyer review this licensing language before launch -->
+    </details>
+    <details>
+      <summary>What equipment do you use?</summary>
+      <p>Professional-grade equipment: camera, lenses, lighting, and microphones. If your project calls for something more, such as aerial footage or a larger crew, tell us up front and we'll let you know honestly whether we can do it.</p><!-- [[COPY]] update when you add a drone, gimbal, or crew -->
+    </details>
+    <details>
       <summary>Do I need a deposit?</summary>
       <p>Yes. A deposit is required to get a project started, and we'll go over the details when we send your quote.</p>
     </details>
@@ -495,7 +503,7 @@ footer{
     <div>
       <h2>About Vevori</h2>
       <p style="margin-top:1.5rem">Vevori Media is a video production company based in Oregon, founded by Collin Butrlakorn. It started with one person and a camera, and it is growing into a small team.</p><!-- [[COPY]] -->
-      <p>However many people are on a given job, you have one point of contact from the first email through the final file. We staff each project with the people it needs, such as a second shooter or an audio operator, instead of sending a rotating cast.</p>
+      <p>However many people are on a given job, you have one point of contact from the first email through the final file. You deal with the same people from start to finish, instead of a rotating cast.</p>
       <p>We're based in Oregon and work across Oregon and Alaska.</p>
     </div>
   </div>
@@ -506,7 +514,7 @@ footer{
   <div class="contact__grid">
     <div>
       <h2>Start a project</h2>
-      <p class="lede" style="margin-bottom:2rem">Tell us roughly what you're thinking. Every inquiry gets an answer within one business day, even when the answer is no.</p><!-- [[COPY]] -->
+      <p class="lede" style="margin-bottom:2rem">Tell us roughly what you're thinking. Every inquiry gets a personal reply, even when the answer is no.</p><!-- [[COPY]] -->
 
       <!-- Submissions go to Formspree (formspree.io), which emails them to the address set in
            the Formspree dashboard. To change where they land, change it there, not here. -->
@@ -714,7 +722,7 @@ footer{
           if(!r.ok) throw new Error("bad status " + r.status);
           form.reset();
           statusEl.className = "form__status is-ok";
-          statusEl.textContent = "Thanks, we've got it. You'll hear back within one business day.";
+          statusEl.textContent = "Thanks, we've got it. We'll be in touch soon.";
         })
         .catch(function(){
           var m = document.querySelector('.direct a[href^="mailto:"]');
