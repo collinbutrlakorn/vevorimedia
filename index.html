@@ -109,6 +109,11 @@ h1,h2,h3{
   text-wrap:balance;
 }
 h2{ font-size:clamp(2rem,1.2rem + 3.6vw,4rem); }
+/* Bodoni Moda sharpens its hairlines as the optical size grows, which makes big headings hard to read.
+   Pin the optical size low so the thin strokes stay sturdy. Raise the number for more contrast. */
+h1,h2,h3,.lede,.work__lead,.testimonial blockquote p,.faq summary,.quote,.nav__mark,.lb__title{
+  font-optical-sizing:none; font-variation-settings:"opsz" 11;
+}
 h3{ font-size:1.3rem; font-weight:500; letter-spacing:0; line-height:1.22; }
 p{ margin:0 0 1em; max-width:62ch; }
 
