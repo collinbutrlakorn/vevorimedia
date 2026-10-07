@@ -9,8 +9,8 @@
      Single file. No build step. Goes in a GitHub repo, served by GitHub Pages
      at vevorimedia.com.
 
-     CollinMotion is a separate site for personal/creative work. Anything on
-     this page should be work a business would pay for.
+     This site is for Vevori Media only. Keep it company-voice ("we") so it
+     still reads right as the team grows.
 
      EDIT MARKERS:
        [[COPY]]     words to rewrite in your own voice
@@ -23,7 +23,7 @@
    ========================================================================== -->
 
 <title>Vevori Media — Video production in Oregon &amp; Alaska</title>
-<meta name="description" content="Vevori Media is a video production company run by Collin Butrlakorn, working in Oregon and Alaska. Brand and corporate films, advertising, event coverage, and sports media.">
+<meta name="description" content="Vevori Media is a video production company based in Oregon, working across Oregon and Alaska. Brand and corporate films, advertising, event coverage, and sports media.">
 <!-- PRE-LAUNCH: keeps search engines away while placeholder text is still on the page.
      DELETE THIS LINE when the site is ready to be found. -->
 <meta name="robots" content="noindex, nofollow">
@@ -48,7 +48,7 @@
   "email": "collinbutrlakorn@gmail.com",
   "areaServed": ["Oregon", "Alaska"],
   "founder": { "@type": "Person", "name": "Collin Butrlakorn" },
-  "sameAs": ["https://www.instagram.com/vevorimedia/", "https://collinmotion.com/"]
+  "sameAs": ["https://www.instagram.com/vevorimedia/"]
 }
 </script>
 
@@ -172,6 +172,7 @@ p{ margin:0 0 1em; max-width:62ch; }
   background:#0a0c0b center/cover no-repeat;
   border:1px solid rgba(21,24,26,.35);
 }
+.hero__mark{ position:absolute; z-index:1; top:clamp(1.25rem,4vw,3rem); right:clamp(1.25rem,5vw,4rem); height:clamp(7rem,30vw,17rem); width:auto; }
 .hero__veil{ position:absolute; inset:0; background:linear-gradient(to top,rgba(10,12,11,.9) 0%,rgba(10,12,11,.3) 48%,rgba(10,12,11,.05) 78%); }
 .hero__plate{
   position:absolute; left:0; right:0; bottom:0;
@@ -242,7 +243,6 @@ p{ margin:0 0 1em; max-width:62ch; }
 
 /* ---------- about ---------- */
 .about{ display:grid; gap:clamp(1.5rem,4vw,3.5rem); grid-template-columns:minmax(0,1fr); align-items:start; }
-@media (min-width:880px){ .about{ grid-template-columns:22rem minmax(0,1fr); } }
 .about__pic{ aspect-ratio:4/5; background:var(--stage-deep) center/cover no-repeat; }
 .quote{ margin:2.5rem 0 0; padding-left:1.25rem; border-left:2px solid var(--ink); font-size:1.15rem; font-family:var(--display); font-weight:400; line-height:1.45; }
 .quote cite{ display:block; margin-top:.6rem; font-size:.88rem; font-style:normal; color:var(--ink-faint); }
@@ -324,15 +324,17 @@ footer{
 
 <!-- ================= HERO ================= -->
 <header class="hero" id="top">
-  <!-- [[MEDIA]] Hero still is assets/hero.jpg. To use a looping video instead, add assets/hero-loop.mp4 (6-10s, muted, under ~4 MB). -->
-  <div class="hero__frame" style="background-image:url('assets/hero.jpg')">
+  <!-- [[MEDIA]] The hero shows the brand mark until there is real footage. To use a still or loop of client work, add it
+       to /assets and set it as the background of .hero__frame (or add a <video> element inside it). -->
+  <div class="hero__frame">
+    <img class="hero__mark" src="logos/vevori-mark-white.png" alt="">
     <!-- Optional looping video: add assets/hero-loop.mp4, then restore
          <video id="reel" autoplay muted loop playsinline><source src="assets/hero-loop.mp4" type="video/mp4"></video> -->
     <div class="hero__veil"></div>
     <div class="hero__plate">
       <h1>Video that has a job to do</h1><!-- [[COPY]] -->
       <div class="hero__say">
-        <p>Vevori Media is a video production company in Oregon, run by Collin Butrlakorn. Corporate films, advertising, events, and sports — shot, cut, and delivered without an agency sitting in the middle.</p><!-- [[COPY]] -->
+        <p>Vevori Media is a video production company based in Oregon. Corporate films, advertising, events, and sports, produced start to finish without an agency in the middle.</p><!-- [[COPY]] -->
         <div class="hero__actions">
           <a class="btn btn--light" href="#contact">Start a project</a>
           <a class="btn btn--onDark" href="#work">See the work</a>
@@ -343,7 +345,6 @@ footer{
   <div class="hero__meta">
     <span>Based in Oregon</span>
     <span>Shooting in Alaska</span>
-    <span>Booking from PLACEHOLDER month</span><!-- [[COPY]] -->
   </div>
 </header>
 
@@ -356,27 +357,22 @@ footer{
     <div class="svc__row">
       <h3>Brand &amp; corporate films</h3>
       <p>A short film about what your business does and why it's worth someone's attention. Built for your homepage, your sales deck, and your recruiting page.</p>
-      <span class="svc__from">from $PLACEHOLDER</span><!-- [[COPY]] or delete the price column -->
     </div>
     <div class="svc__row">
       <h3>Advertising &amp; product spots</h3>
       <p>Short commercial work, cut in the sizes the platform actually wants: 30s, 15s, 6s, horizontal and vertical, from one shoot.</p>
-      <span class="svc__from">from $PLACEHOLDER</span>
     </div>
     <div class="svc__row">
       <h3>Event coverage</h3>
       <p>Conferences, openings, fundraisers. A recap film plus a set of clips, so the day is still working for you a month later.</p>
-      <span class="svc__from">from $PLACEHOLDER</span>
     </div>
     <div class="svc__row">
       <h3>Sports &amp; team media</h3>
       <p>Highlights, player features, and season recaps for programs and organizations. The work that started all of this.</p>
-      <span class="svc__from">from $PLACEHOLDER</span>
     </div>
     <div class="svc__row">
       <h3>Commercial stills</h3>
       <p>Headshots, staff pages, product and location photography. Usually added to a video shoot day rather than booked alone.</p>
-      <span class="svc__from">from $PLACEHOLDER</span>
     </div>
   </div>
 </section>
@@ -390,7 +386,7 @@ footer{
 
     <div class="work__panel">
       <p class="work__lead">Vevori Media is just getting started, so there's no client reel to scroll yet.</p><!-- [[COPY]] -->
-      <p>If you'd like to see how I shoot and edit before you reach out, ask and I'll send samples. A first project with me is a first project on this page, and I'll treat it that way.</p><!-- [[COPY]] -->
+      <p>If you'd like to see how we shoot and edit before you reach out, ask and we'll send samples. A first project with us is a first project on this page, and we'll treat it that way.</p><!-- [[COPY]] -->
       <a class="btn btn--light" href="#contact">Ask for samples</a>
     </div>
 
@@ -399,7 +395,7 @@ footer{
          YouTube embed: https://www.youtube-nocookie.com/embed/VIDEO_ID
          Vimeo embed:   https://player.vimeo.com/video/VIDEO_ID
          Add a thumbnail in /assets and point background-image at it.
-         Keep this section to paid or client work. Personal films belong on collinmotion.com.
+         Keep this section to paid or client work.
 
     <div class="grid">
       <button class="tile" data-embed="https://www.youtube-nocookie.com/embed/VIDEO_ID" data-title="Project name">
@@ -412,8 +408,6 @@ footer{
       </button>
     </div>
     -->
-
-    <p class="work__more">Looking for my personal films and photography? They're at <a href="https://collinmotion.com/">collinmotion.com</a>.</p><!-- [[LINK]] -->
   </div>
 </section>
 
@@ -435,7 +429,7 @@ footer{
     <div class="step">
       <div class="step__n">03</div>
       <h3>Deliver</h3>
-      <p>First cut within PLACEHOLDER days, two rounds of notes included, final files sized for every place you'll post them. You own the footage.</p>
+      <p>First cut on a timeline we agree up front, two rounds of notes included, and final files sized for every place you'll post them. You own the footage.</p>
     </div>
   </div>
 </section>
@@ -443,17 +437,13 @@ footer{
 <!-- ================= ABOUT ================= -->
 <section class="section wrap" id="about">
   <div class="about">
-    <!-- [[MEDIA]] This is a coastline photo, not a headshot. A real photo of you here will build more trust than scenery. Replace assets/about.jpg and update the aria-label. -->
-    <div class="about__pic" style="background-image:url('assets/about.jpg')" role="img" aria-label="Pacific Northwest coastline photographed by Collin Butrlakorn"></div>
     <div>
-      <h2>Who you're hiring</h2>
-      <p style="margin-top:1.5rem">Vevori Media is Collin Butrlakorn. I grew up in Alaska, outside and playing ball, and the basketball mixtapes I couldn't stop watching are most of why I picked up a camera in the first place. Photography came first, video took over, and the commercial work is now the part I build everything else around.</p><!-- [[COPY]] -->
-      <p>Right now the company is one person, which is the point: you talk to whoever is holding the camera, from the first email through the final file. When a job needs a second shooter or an audio op, I bring people I've worked with rather than a rotating crew.</p>
-      <p>Based in Oregon, back in Alaska often enough that a shoot up there isn't a logistics problem. My personal and creative work is at <a href="https://collinmotion.com/">collinmotion.com</a>.</p>
-      <blockquote class="quote">
-        PLACEHOLDER — one sentence from a client you've made happy. A single specific quote beats five generic ones. If you don't have one, ask your last client this week; most people say yes.
-        <cite>Name, Company</cite>
-      </blockquote><!-- [[COPY]] -->
+      <h2>About Vevori</h2>
+      <p style="margin-top:1.5rem">Vevori Media is a video production company based in Oregon, founded by Collin Butrlakorn. It started with one person and a camera, and it is growing into a small team.</p><!-- [[COPY]] -->
+      <p>However many people are on a given job, you have one point of contact from the first email through the final file. We staff each project with the people it needs, such as a second shooter or an audio operator, instead of sending a rotating cast.</p>
+      <p>We're based in Oregon and work across Oregon and Alaska.</p>
+      <!-- [[COPY]] TESTIMONIAL: when you have a real client quote, add it here:
+           <blockquote class="quote">Quote text.<cite>Name, Company</cite></blockquote> -->
     </div>
   </div>
 </section>
@@ -463,7 +453,7 @@ footer{
   <div class="contact__grid">
     <div>
       <h2>Start a project</h2>
-      <p class="lede" style="margin-bottom:2rem">Tell me roughly what you're thinking. Every inquiry gets an answer within one business day, even when the answer is no.</p><!-- [[COPY]] -->
+      <p class="lede" style="margin-bottom:2rem">Tell us roughly what you're thinking. Every inquiry gets an answer within one business day, even when the answer is no.</p><!-- [[COPY]] -->
 
       <!-- [[LINK]] A static site can't send email on its own. Make a free endpoint at
            formspree.io or web3forms.com and paste it into action="" below.
@@ -524,8 +514,6 @@ footer{
       <!-- [[LINK]] Add YouTube / TikTok / LinkedIn lines here once those @vevorimedia handles exist. -->
       <p><a href="https://www.instagram.com/vevorimedia/">Instagram — @vevorimedia</a></p>
 
-      <h3 style="margin-top:2rem">Worked together before?</h3>
-      <p style="color:var(--ink-soft)">Past photo deliveries are still in your <a href="https://collinmotion.pixieset.com/">client gallery</a>. Booking again takes one line — just say what and when.</p>
     </aside>
   </div>
 </section>
@@ -534,9 +522,9 @@ footer{
   <!-- [[COPY]] Add "LLC" once the entity is registered. -->
   <span class="foot__brand">
     <img src="logos/vevori-logo.png" alt="Vevori Media">
-    <span>© <span id="yr">2026</span> Vevori Media · Collin Butrlakorn</span>
+    <span>© <span id="yr">2026</span> Vevori Media</span>
   </span>
-  <span>Oregon &amp; Alaska · <a href="https://collinmotion.com/">CollinMotion</a></span>
+  <span>Oregon &amp; Alaska</span>
 </footer>
 
 <!-- ================= LIGHTBOX ================= -->
