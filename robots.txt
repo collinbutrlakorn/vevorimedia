@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vevorimedia.com/sitemap.xml
