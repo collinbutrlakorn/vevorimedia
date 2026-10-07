@@ -27,6 +27,6 @@ Brand colors (sampled from the logo) are CSS variables at the top of the stylesh
 
 1. Contact form: submissions go through Formspree (form id in the form's `action`) and are emailed to the address set in the Formspree dashboard. Change the destination there, then send a test inquiry.
 2. Swap the contact email for collin@vevorimedia.com (or a shared address like hello@) once forwarding works. It appears in the contact section and the search-engine metadata.
-3. When there is real client work, replace the Work panel with the tile grid kept in a comment under it. Add a testimonial the same way (template is commented in the About section).
+3. When there is real client work, replace the Work panel with the tile grid kept in a comment under it. More testimonials: repeat the `<figure>` in the testimonial section. FAQ answers are plain text in the FAQ section; add real prices there once they're settled.
 4. Delete the `noindex` meta tag in `<head>` so search engines can find the site.
 5. GitHub Pages: Settings, Pages, deploy from `main`, root folder, custom domain `vevorimedia.com`, then enable "Enforce HTTPS" once it's available.

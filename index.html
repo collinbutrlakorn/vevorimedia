@@ -235,6 +235,22 @@ p{ margin:0 0 1em; max-width:62ch; }
 .work__more{ margin-top:2.5rem; color:rgba(244,245,242,.6); font-size:.95rem; }
 .work__more a{ color:var(--paper); }
 
+/* ---------- testimonial ---------- */
+.testimonial{ margin:0; max-width:56rem; padding-left:clamp(1.25rem,3vw,2rem); border-left:2px solid var(--ink); }
+.testimonial blockquote{ margin:0; }
+.testimonial blockquote p{ font-family:var(--display); font-weight:500; font-size:clamp(1.6rem,1.1rem + 2vw,2.7rem); line-height:1.18; letter-spacing:-.01em; max-width:30ch; margin:0; text-wrap:balance; }
+.testimonial figcaption{ margin-top:1.25rem; font-weight:600; font-size:.95rem; }
+.testimonial figcaption span{ display:block; font-weight:400; color:var(--ink-soft); }
+
+/* ---------- faq ---------- */
+.faq{ margin-top:3rem; max-width:52rem; border-top:var(--rule); }
+.faq details{ border-bottom:var(--rule); }
+.faq summary{ position:relative; cursor:pointer; list-style:none; padding:1.35rem 2.5rem 1.35rem 0; font-family:var(--display); font-weight:500; font-size:clamp(1.15rem,1rem + .6vw,1.45rem); line-height:1.25; }
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{ content:"+"; position:absolute; right:.25rem; top:50%; transform:translateY(-50%); font-family:var(--body); font-weight:400; font-size:1.6rem; line-height:1; }
+.faq details[open] summary::after{ content:"\2212"; }
+.faq details p{ margin:0 0 1.5rem; color:var(--ink-soft); max-width:56ch; }
+
 /* ---------- process ---------- */
 .steps{ margin-top:3rem; display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); }
 .step{ border-top:2px solid var(--ink); padding-top:1rem; }
@@ -320,6 +336,7 @@ footer{
     <a href="#work">Work</a>
     <a href="#services">Services</a>
     <a href="#process">How it works</a>
+    <a href="#faq">FAQ</a>
     <a href="#about">About</a>
   </div>
   <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
@@ -415,6 +432,17 @@ footer{
   </div>
 </section>
 
+<!-- ================= TESTIMONIAL ================= -->
+<section class="section wrap" id="testimonial">
+  <figure class="testimonial">
+    <blockquote>
+      <p>&ldquo;I love how intentional Collin is with his editing details! He always brings my visions to life.&rdquo;</p>
+    </blockquote>
+    <figcaption>Dara Elkanah <span>Golden Touch</span></figcaption>
+  </figure>
+  <!-- [[COPY]] To add more quotes later, repeat the <figure> above. -->
+</section>
+
 <!-- ================= PROCESS ================= -->
 <section class="section wrap" id="process">
   <h2>How it works</h2>
@@ -438,6 +466,29 @@ footer{
   </div>
 </section>
 
+<!-- ================= FAQ ================= -->
+<section class="section wrap" id="faq">
+  <h2>Common questions</h2>
+  <div class="faq">
+    <details>
+      <summary>How much does a project cost?</summary>
+      <p>Every project is quoted individually, based on what we're making and how much shooting and editing it takes. Tell us about yours through the form and we'll get back to you with a quote.</p><!-- [[COPY]] add real numbers here once pricing is settled -->
+    </details>
+    <details>
+      <summary>How long does it take?</summary>
+      <p>Roughly a few days, depending on the size of the project. We'll agree on a timeline with you before we start.</p>
+    </details>
+    <details>
+      <summary>Do you travel?</summary>
+      <p>Yes. We're based in Oregon and prefer to work within the state, but we're open to traveling farther depending on the scale of the project.</p>
+    </details>
+    <details>
+      <summary>Do I need a deposit?</summary>
+      <p>Yes. A deposit is required to get a project started, and we'll go over the details when we send your quote.</p>
+    </details>
+  </div>
+</section>
+
 <!-- ================= ABOUT ================= -->
 <section class="section wrap" id="about">
   <div class="about">
@@ -446,8 +497,6 @@ footer{
       <p style="margin-top:1.5rem">Vevori Media is a video production company based in Oregon, founded by Collin Butrlakorn. It started with one person and a camera, and it is growing into a small team.</p><!-- [[COPY]] -->
       <p>However many people are on a given job, you have one point of contact from the first email through the final file. We staff each project with the people it needs, such as a second shooter or an audio operator, instead of sending a rotating cast.</p>
       <p>We're based in Oregon and work across Oregon and Alaska.</p>
-      <!-- [[COPY]] TESTIMONIAL: when you have a real client quote, add it here:
-           <blockquote class="quote">Quote text.<cite>Name, Company</cite></blockquote> -->
     </div>
   </div>
 </section>
@@ -559,7 +608,7 @@ footer{
   var head = document.getElementById("scrubHead");
   var bar  = document.querySelector(".scrub");
 
-  ["services","work","process","about","contact"].forEach(function(id){
+  ["services","work","process","faq","about","contact"].forEach(function(id){
     var el = document.getElementById(id);
     if(!el) return;
     var tick = document.createElement("div");
