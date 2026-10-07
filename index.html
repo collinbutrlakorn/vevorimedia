@@ -260,6 +260,10 @@ input,select,textarea{
   border-radius:0; width:100%;
 }
 textarea{ min-height:8rem; resize:vertical; }
+.form__status{ margin:0; min-height:1.5em; font-size:.95rem; }
+.form__status.is-ok,.form__status.is-err{ padding-left:.75rem; border-left:3px solid var(--arc-green); }
+.form__status.is-err{ border-left-color:var(--arc-red); }
+.btn:disabled{ opacity:.6; cursor:progress; }
 .two{ display:grid; gap:1rem; grid-template-columns:1fr 1fr; }
 @media (max-width:560px){ .two{ grid-template-columns:1fr; } }
 .direct h3{ margin-bottom:.5rem; }
@@ -455,10 +459,12 @@ footer{
       <h2>Start a project</h2>
       <p class="lede" style="margin-bottom:2rem">Tell us roughly what you're thinking. Every inquiry gets an answer within one business day, even when the answer is no.</p><!-- [[COPY]] -->
 
-      <!-- [[LINK]] A static site can't send email on its own. Make a free endpoint at
-           formspree.io or web3forms.com and paste it into action="" below.
-           Until you do, this form submits nowhere. -->
-      <form action="https://formspree.io/f/PLACEHOLDER" method="POST">
+      <!-- Submissions go to Formspree (formspree.io), which emails them to the address set in
+           the Formspree dashboard. To change where they land, change it there, not here. -->
+      <form id="contactForm" action="https://formspree.io/f/xrpeekrb" method="POST">
+        <input type="hidden" name="_subject" value="New Vevori Media inquiry">
+        <!-- spam trap: real visitors never see or fill this -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="two">
           <div class="field">
             <label for="name">Your name</label>
@@ -501,6 +507,7 @@ footer{
           <textarea id="msg" name="message" required></textarea>
         </div>
         <div><button class="btn" type="submit">Send inquiry</button></div>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
 
@@ -643,12 +650,29 @@ footer{
     });
   });
 
-  /* ---- contact form: don't post to a placeholder endpoint ---- */
-  var form = document.querySelector("form");
-  if(form && /PLACEHOLDER/.test(form.getAttribute("action"))){
+  /* ---- contact form: send in the background, show the result in place ---- */
+  var form = document.getElementById("contactForm");
+  if(form){
+    var statusEl = document.getElementById("formStatus");
+    var sendBtn = form.querySelector('button[type="submit"]');
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      alert("This form isn't connected yet. Please email collinbutrlakorn@gmail.com directly.");
+      statusEl.className = "form__status";
+      statusEl.textContent = "Sending...";
+      sendBtn.disabled = true;
+      fetch(form.action, { method:"POST", body:new FormData(form), headers:{ "Accept":"application/json" } })
+        .then(function(r){
+          if(!r.ok) throw new Error("bad status " + r.status);
+          form.reset();
+          statusEl.className = "form__status is-ok";
+          statusEl.textContent = "Thanks, we've got it. You'll hear back within one business day.";
+        })
+        .catch(function(){
+          var m = document.querySelector('.direct a[href^="mailto:"]');
+          statusEl.className = "form__status is-err";
+          statusEl.textContent = "That didn't go through. Please email us directly" + (m ? " at " + m.textContent : "") + ".";
+        })
+        .then(function(){ sendBtn.disabled = false; });
     });
   }
 
