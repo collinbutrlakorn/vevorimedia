@@ -227,6 +227,10 @@ p{ margin:0 0 1em; max-width:62ch; }
 .tile__time{ position:absolute; right:.85rem; bottom:.9rem; font-family:var(--mono); font-size:.75rem; color:rgba(244,245,242,.75); }
 .tile h3{ margin:.9rem 0 .25rem; }
 .tile__meta{ font-family:var(--mono); font-size:.76rem; color:rgba(244,245,242,.55); margin:0; }
+.work__panel{ margin-top:3rem; max-width:46rem; border-top:1px solid rgba(244,245,242,.25); padding-top:2rem; }
+.work__lead{ font-family:var(--display); font-weight:500; font-size:clamp(1.4rem,1.1rem + 1.2vw,2rem); line-height:1.25; color:var(--paper); margin-bottom:1rem; }
+.work__panel p:not(.work__lead){ color:rgba(244,245,242,.75); }
+.work__panel .btn{ margin-top:.75rem; }
 .work__more{ margin-top:2.5rem; color:rgba(244,245,242,.6); font-size:.95rem; }
 .work__more a{ color:var(--paper); }
 
@@ -382,57 +386,34 @@ footer{
   <div class="wrap">
     <div class="work__head">
       <h2>Work</h2>
-      <p class="work__note">A short list on purpose. Ask and you'll get whatever's closest to what you're planning.</p><!-- [[COPY]] -->
     </div>
 
-    <!-- [[CLIENT]] Two tile types:
-         VIDEO  — <button class="tile" data-embed="..." data-title="...">
-                  YouTube: https://www.youtube-nocookie.com/embed/VIDEO_ID
-                  Vimeo:   https://player.vimeo.com/video/VIDEO_ID
-         LINK   — <a class="tile" href="...">
-         Delete any tile you don't need; the grid reflows on its own.
-         Keep this section commercial. Personal films belong on collinmotion.com. -->
+    <div class="work__panel">
+      <p class="work__lead">Vevori Media is just getting started, so there's no client reel to scroll yet.</p><!-- [[COPY]] -->
+      <p>If you'd like to see how I shoot and edit before you reach out, ask and I'll send samples. A first project with me is a first project on this page, and I'll treat it that way.</p><!-- [[COPY]] -->
+      <a class="btn btn--light" href="#contact">Ask for samples</a>
+    </div>
+
+    <!-- [[CLIENT]] WHEN YOU HAVE REAL CLIENT WORK: replace the panel above with a grid like this.
+         Paste one tile per project, and put real YouTube or Vimeo IDs in data-embed.
+         YouTube embed: https://www.youtube-nocookie.com/embed/VIDEO_ID
+         Vimeo embed:   https://player.vimeo.com/video/VIDEO_ID
+         Add a thumbnail in /assets and point background-image at it.
+         Keep this section to paid or client work. Personal films belong on collinmotion.com.
+
     <div class="grid">
-
-      <button class="tile" data-embed="https://www.youtube-nocookie.com/embed/PLACEHOLDER_ID" data-title="Alaska short film">
-        <span class="tile__shot" style="background-image:url('assets/hero.jpg')">
+      <button class="tile" data-embed="https://www.youtube-nocookie.com/embed/VIDEO_ID" data-title="Project name">
+        <span class="tile__shot" style="background-image:url('assets/thumb-1.jpg')">
           <span class="tile__play"><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0l12 7-12 7z"/></svg></span>
-          <span class="tile__time">PLACEHOLDER</span>
+          <span class="tile__time">1:30</span>
         </span>
-        <h3>PLACEHOLDER title</h3><!-- [[COPY]] the Alaska film — see note about this one below -->
-        <p class="tile__meta">Directed by Collin Butrlakorn · Narrative · PLACEHOLDER year</p>
+        <h3>Project name</h3>
+        <p class="tile__meta">Client name · Corporate · 2026</p>
       </button>
-
-      <button class="tile" data-embed="https://www.youtube-nocookie.com/embed/PLACEHOLDER_ID" data-title="Corporate film">
-        <span class="tile__shot">
-          <span class="tile__play"><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0l12 7-12 7z"/></svg></span>
-          <span class="tile__time">PLACEHOLDER</span>
-        </span>
-        <h3>PLACEHOLDER project</h3>
-        <p class="tile__meta">[[CLIENT]] · Corporate · PLACEHOLDER year</p>
-      </button>
-
-      <button class="tile" data-embed="https://www.youtube-nocookie.com/embed/PLACEHOLDER_ID" data-title="Commercial spot">
-        <span class="tile__shot">
-          <span class="tile__play"><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0l12 7-12 7z"/></svg></span>
-          <span class="tile__time">PLACEHOLDER</span>
-        </span>
-        <h3>PLACEHOLDER spot</h3>
-        <p class="tile__meta">[[CLIENT]] · Advertising · PLACEHOLDER year</p>
-      </button>
-
-      <button class="tile" data-embed="https://www.youtube-nocookie.com/embed/PLACEHOLDER_ID" data-title="Sports feature">
-        <span class="tile__shot">
-          <span class="tile__play"><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0l12 7-12 7z"/></svg></span>
-          <span class="tile__time">PLACEHOLDER</span>
-        </span>
-        <h3>PLACEHOLDER feature</h3>
-        <p class="tile__meta">[[CLIENT]] · Sports media · PLACEHOLDER year</p>
-      </button>
-
     </div>
+    -->
 
-    <p class="work__more">Personal and creative projects live at <a href="https://collinmotion.com/">collinmotion.com</a>.</p><!-- [[LINK]] -->
+    <p class="work__more">Looking for my personal films and photography? They're at <a href="https://collinmotion.com/">collinmotion.com</a>.</p><!-- [[LINK]] -->
   </div>
 </section>
 

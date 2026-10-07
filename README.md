@@ -26,7 +26,7 @@ Brand colors (sampled from the logo) are CSS variables at the top of the stylesh
 
 ## Before launch checklist
 
-1. Fill in the portfolio tiles with real YouTube/Vimeo IDs (tiles with `PLACEHOLDER` in the embed URL do nothing when clicked).
+1. The Work section is a "samples on request" panel for now. When you have real client work, swap it for the tile grid kept in a comment right below it in `index.html`.
 2. Create a free form endpoint at formspree.io or web3forms.com and paste it into the form's `action`.
 3. Replace the testimonial, prices, and turnaround placeholders, or delete those blocks.
 4. Swap `about.jpg` for a photo of you.
