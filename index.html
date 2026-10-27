@@ -237,6 +237,8 @@ p{ margin:0 0 1em; max-width:62ch; }
 .tile:hover .tile__play,.tile:focus-visible .tile__play{ background:var(--paper); }
 .tile:hover .tile__play svg,.tile:focus-visible .tile__play svg{ fill:var(--screen); }
 .tile__time{ position:absolute; right:.85rem; bottom:.9rem; font-family:var(--mono); font-size:.75rem; color:rgba(244,245,242,.75); }
+.grid--vertical{ grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),17rem)); }
+.tile--vertical .tile__shot{ aspect-ratio:9/16; }
 .tile h3{ margin:.9rem 0 .25rem; }
 .tile__meta{ font-family:var(--mono); font-size:.76rem; color:rgba(244,245,242,.55); margin:0; }
 .work__panel{ margin-top:3rem; max-width:46rem; border-top:1px solid rgba(244,245,242,.25); padding-top:2rem; }
@@ -317,6 +319,9 @@ footer{
 .lb__inner{ width:min(100%,64rem); }
 .lb__stage{ position:relative; aspect-ratio:16/9; background:#000; }
 .lb__stage iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+.lb__stage video{ position:absolute; inset:0; width:100%; height:100%; background:#000; }
+.lb__inner.is-vertical{ width:min(100%,calc(78vh*9/16)); }
+.lb__inner.is-vertical .lb__stage{ aspect-ratio:9/16; }
 .lb__bar{ display:flex; justify-content:space-between; gap:1rem; align-items:center; margin-bottom:.75rem; color:var(--paper); }
 .lb__brand{ display:flex; align-items:center; gap:.85rem; min-width:0; }
 .lb__logo{ height:1.1rem; width:auto; opacity:.75; flex:none; }
@@ -423,13 +428,25 @@ footer{
       <h2>Work</h2>
     </div>
 
-    <div class="work__panel">
-      <p class="work__lead">Vevori Media is just getting started, so there's no client reel to scroll yet.</p><!-- [[COPY]] -->
-      <p>If you'd like to see how we shoot and edit before you reach out, ask and we'll send samples. A first project with us is a first project on this page, and we'll treat it that way.</p><!-- [[COPY]] -->
+    <div class="grid grid--vertical">
+      <button class="tile tile--vertical" data-video="assets/work/elijah-cuts.mp4" data-vertical="1" data-title="Elijah Cuts">
+        <span class="tile__shot" style="background-image:url('assets/work/elijah-cuts-poster.jpg')">
+          <span class="tile__play"><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0l12 7-12 7z"/></svg></span>
+          <span class="tile__time">1:03</span>
+        </span>
+        <h3>Elijah Cuts</h3>
+        <p class="tile__meta">Corporate short film &middot; 2026</p>
+      </button>
+    </div>
+
+    <div class="work__panel" style="margin-top:3rem">
+      <p class="work__lead">Want to see more before you reach out?</p><!-- [[COPY]] -->
+      <p>Ask and we'll send samples that fit what you're looking for.</p><!-- [[COPY]] -->
       <a class="btn btn--light" href="#contact">Ask for samples</a>
     </div>
 
-    <!-- [[CLIENT]] WHEN YOU HAVE REAL CLIENT WORK: replace the panel above with a grid like this.
+    <!-- [[CLIENT]] TO ADD MORE WORK: paste another tile into the grid above. Videos can be a file (data-video) or a YouTube/Vimeo ID (data-embed).
+         Embed example:
          Paste one tile per project, and put real YouTube or Vimeo IDs in data-embed.
          YouTube embed: https://www.youtube-nocookie.com/embed/VIDEO_ID
          Vimeo embed:   https://player.vimeo.com/video/VIDEO_ID
@@ -703,9 +720,28 @@ footer{
   var lbTitle = document.getElementById("lbTitle");
   var opener = null;
 
+  var lbInner = lb.querySelector(".lb__inner");
+
+  function openVideo(src, title, vertical){
+    lbTitle.textContent = title || "";
+    stage.innerHTML = "";
+    lbInner.classList.toggle("is-vertical", !!vertical);
+    var v = document.createElement("video");
+    v.src = src;
+    v.controls = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    v.setAttribute("aria-label", title || "Video");
+    stage.appendChild(v);
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+    document.getElementById("lbClose").focus();
+  }
+
   function open(url, title){
     lbTitle.textContent = title || "";
     stage.innerHTML = "";
+    lbInner.classList.remove("is-vertical");
     var f = document.createElement("iframe");
     f.src = url + (url.indexOf("?") > -1 ? "&" : "?") + "autoplay=1";
     f.allow = "autoplay; fullscreen; picture-in-picture";
@@ -726,9 +762,10 @@ footer{
 
   document.querySelectorAll("button.tile").forEach(function(t){
     t.addEventListener("click", function(){
+      opener = t;
+      if(t.dataset.video){ openVideo(t.dataset.video, t.dataset.title, t.dataset.vertical); return; }
       /* placeholder tiles do nothing until a real video ID is pasted in */
       if(/PLACEHOLDER/.test(t.dataset.embed)) return;
-      opener = t;
       open(t.dataset.embed, t.dataset.title);
     });
   });
