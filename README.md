@@ -28,6 +28,6 @@ Brand colors (sampled from the logo) are CSS variables at the top of the stylesh
 ## Before launch checklist
 
 1. Contact form: submissions go through Formspree (form id in the form's `action`) and are emailed to the address set in the Formspree dashboard. Change the destination there, then send a test inquiry.
-2. Swap the contact email for collin@vevorimedia.com (or a shared address like hello@) once forwarding works. It appears in the contact section and the search-engine metadata.
+2. Public contact email is hello@vevorimedia.com (contact section, search metadata, Privacy and Terms). Form submissions go to whatever address is set in the Formspree dashboard.
 3. To add client work, paste another tile into the Work grid (a video file in assets/work via data-video, or a YouTube or Vimeo ID via data-embed; the template is in a comment under the grid). More testimonials: repeat the `<figure>` in the testimonial section. FAQ answers are plain text in the FAQ section; keep the "from" prices in step with your real pricing.
 4. GitHub Pages: Settings, Pages, deploy from `main`, root folder, custom domain `vevorimedia.com`, then enable "Enforce HTTPS" once it's available.
